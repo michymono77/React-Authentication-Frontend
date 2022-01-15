@@ -17,7 +17,7 @@ export default class App extends Component {
       <Router>
         <Routes>
           <Route path="/" element={< Home loggedInStatus={this.state.loggedInStatus} />} ></Route>
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={< Dashboard loggedInStatus={this.state.loggedInStatus} />} ></Route>
         </Routes>
       </Router>
     );
