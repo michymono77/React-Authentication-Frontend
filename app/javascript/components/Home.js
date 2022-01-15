@@ -13,7 +13,9 @@ const Home = (props) => {
 
   const handleSuccessfulAuth = (data) => {
     // TODO: update parent component
-      navigate('/dashboard') // redirect
+    props.handleLogin(data);
+    // redirect
+      navigate('/dashboard')
   };
 
     return (
