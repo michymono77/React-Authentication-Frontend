@@ -32,6 +32,9 @@ export default class Registration extends Component {
     { withCredentials: true }// IMPORTANT; this will set the cookie on the client
     ).then(response => {
       console.log("Registration response", response)
+      if (response.data.status === 'created') {
+        this.props.handleSuccessfulAuth(response.data);
+       }
     }).catch(error => {
       console.log("Registration error", error);
     })
