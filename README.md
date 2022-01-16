@@ -1,1 +1,1 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+A boilrerPlate for HTTPOnly Cookie authentication with React(v6); it takes an advantage of session (by using Ruby on Rails for the backend). Note: it does not use JWT token. 
