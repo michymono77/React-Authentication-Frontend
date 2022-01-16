@@ -24,7 +24,7 @@ const Home = (props) => {
         <h1>Home</h1>
         <h1>Stauts: {props.loggedInStatus}</h1>
         <Registration handleSuccessfulAuth={handleSuccessfulAuth}/>
-        <Login />
+        <Login handleSuccessfulAuth={handleSuccessfulAuth}/>
       </div>
     );
 }

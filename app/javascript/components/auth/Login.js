@@ -25,10 +25,10 @@ export default class Login extends Component {
     },
     { withCredentials: true }// IMPORTANT; this will set the cookie on the client
     ).then(response => {
-      console.log("response from login", response)
-      // if (response.data.status === 'created') {
-      //   this.props.handleSuccessfulAuth(response.data);
-      //  }
+      // console.log("response from login", response)
+      if (response.data.logged_in) {
+        this.props.handleSuccessfulAuth(response.data);
+       }
     }).catch(err => {
       console.log("err->", err.message)
     })
