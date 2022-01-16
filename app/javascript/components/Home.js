@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import Registration from './auth/Registration';
 import { useNavigate } from 'react-router-dom'
+import Login from './auth/Login';
 
 const Home = (props) => {
 
@@ -23,6 +24,7 @@ const Home = (props) => {
         <h1>Home</h1>
         <h1>Stauts: {props.loggedInStatus}</h1>
         <Registration handleSuccessfulAuth={handleSuccessfulAuth}/>
+        <Login />
       </div>
     );
 }
