@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import Dashboard from './Dashboard';
 import Home from './Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import axios from 'axios';
 
+// App let you know whether the user is logged in or not
 export default class App extends Component {
   constructor() {
     super();
@@ -11,6 +13,29 @@ export default class App extends Component {
       user: {}
     };
     this.handleLogin = this.handleLogin.bind(this);
+  }
+
+  checkLoginStatus() {
+    axios.get("http://localhost:3001/logged_in", { withCredentials: true}).then(response =>{
+      if (response.data.logged_in && this.state.loggedInStatus === "NOT_LOGGED_IN"){
+        this.setState({
+          loggedInStatus: "LOGGED_IN",
+          user: response.data.user
+        })
+      } else if (!response.data.logged_in & this.state.checkLoginStatus === "LOGGED_IN"){
+        this.setState({
+          loggedInStatus: "NOT_LOGGED_IN",
+          user: {}
+        })
+      }
+
+    }).catch(error => {
+      console.log("check login error", error);
+    });
+  }
+
+  componentDidMount() {
+    this.checkLoginStatus();
   }
 
   handleLogin(data) {
